@@ -12,12 +12,16 @@ local pairLabel = main:addLabel()
     pairLabel:setFontSize(2)
 
 local pairText = main:addLabel()
-    pairText:setText("Click to start pairing to host")
-    pairText:setPosition(5, 5)
+    pairText:setText("Click to start pairing to host.")
+    pairText:setPosition(6, 5)
+
+local turtleName = main:addLabel()
+    pairText:setText("This is " .. hostName)
+    pairText:setPosition(19, 8)
 
 local stopPairButton = main:addButton()
     stopPairButton:hide()
-    stopPairButton:setPosition(14, 7)
+    stopPairButton:setPosition(15, 7)
     stopPairButton:setText("Stop")
     stopPairButton:setBackground(colors.red)
     stopPairButton:setForeground(colors.white)
@@ -31,7 +35,7 @@ local stopPairButton = main:addButton()
     end)
 
 local pairButton = main:addButton()
-    pairButton:setPosition(14, 7)
+    pairButton:setPosition(15, 7)
     pairButton:setText("Broadcast")
     pairButton:setBackground(colors.green)
     pairButton:setForeground(colors.white)
@@ -48,6 +52,7 @@ function stopPairing()
     rednet.unhost("eMaHostPair")
     stopPairButton:hide()
     pairButton:show()
+    pairText:setText("Click to start pairing to host.")
     
 end
 
@@ -55,6 +60,7 @@ function pairWithHost()
     rednet.host("eMaHostPair", hostName)
     stopPairButton:show()
     pairButton:hide()
+    pairText:setText("Broadcasting, check host computer.")
 end
 
 basalt.autoUpdate()
