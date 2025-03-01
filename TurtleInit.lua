@@ -16,8 +16,8 @@ local pairText = main:addLabel()
     pairText:setPosition(6, 5)
 
 local turtleName = main:addLabel()
-    pairText:setText("This is " .. hostName)
-    pairText:setPosition(19, 8)
+    turtleName:setText("This is " .. hostName)
+    turtleName:setPosition(19, 8)
 
 local stopPairButton = main:addButton()
     stopPairButton:hide()
