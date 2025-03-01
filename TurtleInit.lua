@@ -3,14 +3,11 @@ local basalt = require("basalt")
 local main = basalt.createFrame()
 
 local modem = peripheral.find("modem", rednet.open)
-if modem == nil then
-    basalt.debug("No modem found")
-end
 
 local hostName = "eMaTurtle" .. os.getComputerID()
 
 local pairLabel = main:addLabel()
-    pairLabel:setText("Pair this turtle")
+    pairLabel:setText("Pairing")
     pairLabel:setPosition(10, 2)
     pairLabel:setFontSize(2)
 
