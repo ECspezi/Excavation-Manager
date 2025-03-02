@@ -48,7 +48,7 @@ local pairButton = main:addButton()
         pairWithHost()
     end)
 
-local loadingAnimation = main:addProgressBar()
+local loadingAnimation = main:addProgressbar()
 loadingAnimation:setPosition(11, 8)
 loadingAnimation:setSize(10, 1)
 loadingAnimation:setBackground(colors.white)
