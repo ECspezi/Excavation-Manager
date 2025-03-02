@@ -6,7 +6,7 @@ local modem = peripheral.find("modem", rednet.open)
 
 local hostName = "eMHost" .. os.getComputerID()
 
-local sidebar = main:addFrame():setBackground(colors.gray):setPosition("parent.w", 1):setSize(15, "parent.h"):setZIndex(25):setScrollable()
+local sidebar = main:addFrame():setBackground(colors.gray):setPosition("parent.w", 1):setSize(15, "parent.h"):setZIndex(25)
 :onGetFocus(function(self)
     self:setPosition("parent.w - (self.w-1)")
 end)
