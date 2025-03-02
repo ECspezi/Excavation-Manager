@@ -7,13 +7,13 @@ local modem = peripheral.find("modem", rednet.open)
 local hostName = "eMTurtle" .. os.getComputerID()
 
 local pairLabel = main:addLabel()
-    pairLabel:setText("Pairing")
-    pairLabel:setPosition(10, 2)
+    pairLabel:setText("Pair")
+    pairLabel:setPosition(15, 2)
     pairLabel:setFontSize(2)
 
 local pairText = main:addLabel()
     pairText:setText("Click to start pairing to host.")
-    pairText:setPosition(6, 5)
+    pairText:setPosition(5, 5)
 
 local turtleName = main:addLabel()
     turtleName:setText("This is " .. hostName)
@@ -53,7 +53,7 @@ function stopPairing()
     stopPairButton:hide()
     pairButton:show()
     pairText:setText("Click to start pairing to host.")
-    pairText:setPosition(6, 5)
+    pairText:setPosition(5, 5)
     
 end
 
