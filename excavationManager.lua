@@ -1,6 +1,6 @@
 local basalt = require("basalt")
 
-local main = basalt.createFrame()
+local main = basalt.createFrame():setTheme({FrameBG = colors.lightGray, FrameFG = colors.black})
 
 local modem = peripheral.find("modem", rednet.open)
 
