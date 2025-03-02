@@ -17,7 +17,7 @@ local pairText = main:addLabel()
 
 local turtleName = main:addLabel()
     turtleName:setText("This is " .. hostName)
-    turtleName:setPosition(11, 8)
+    turtleName:setPosition(11, 14)
 
 local stopPairButton = main:addButton()
     stopPairButton:hide()
@@ -61,7 +61,7 @@ function pairWithHost()
     rednet.host("eMaHostPair", hostName)
     stopPairButton:show()
     pairButton:hide()
-    pairText:setText("Broadcasting, check host computer.")
+    pairText:setText("Broadcasting, check host.")
     pairText:setPosition(8, 5)
 end
 
