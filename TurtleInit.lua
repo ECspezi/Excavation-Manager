@@ -4,7 +4,7 @@ local main = basalt.createFrame()
 
 local modem = peripheral.find("modem", rednet.open)
 
-local hostName = "eMaTurtle" .. os.getComputerID()
+local hostName = "eMTurtle" .. os.getComputerID()
 
 local pairLabel = main:addLabel()
     pairLabel:setText("Pairing")
@@ -17,7 +17,7 @@ local pairText = main:addLabel()
 
 local turtleName = main:addLabel()
     turtleName:setText("This is " .. hostName)
-    turtleName:setPosition(11, 14)
+    turtleName:setPosition(12, 11)
 
 local stopPairButton = main:addButton()
     stopPairButton:hide()
