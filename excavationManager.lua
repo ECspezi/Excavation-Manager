@@ -36,8 +36,9 @@ for k,v in pairs(sub)do
     y = y + 4
 end
 
-windows[1]:addButton():setPosition(2, 2):onClick(function() main:addFrame():setPosition(1, 1):setSize("parent.w", "parent.h") end)
-    
-end-- EXAMPLE
+windows[1]:addButton():setPosition(2, 2):onClick(function()
+    main:addFrame():setPosition(1, 1):setSize("parent.w", "parent.h"):hide()
+    end)
+
 
 basalt.autoUpdate()
