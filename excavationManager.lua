@@ -28,7 +28,7 @@ for k,v in pairs(windows)do
     :setSize("parent.w - 2", 1)
     :setPosition(2, y)
     :onClick(function() -- here we create a on click event which hides ALL sub frames and then shows the one which is linked to the button
-        for a, b in pairs(sub)do
+        for a, b in pairs(windows)do
             b:hide()
             v:show()
         end
