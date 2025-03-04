@@ -38,7 +38,7 @@ function updateButtons() --This part of the code adds buttons based on the sub t
 end
 
 windows[1]:addButton():setPosition(2, 2):onClick(function()
-    main:addFrame():setPosition(1, 1):setSize("parent.w", "parent.h"):hide()
+    table.insert(windows, main:addFrame():setPosition(1, 1):setSize("parent.w", "parent.h"):hide())
     for key, value in pairs(windows)do
         basalt.debug(key, value)
     end
