@@ -19,26 +19,28 @@ local windows = {
     main:addFrame():setPosition(1, 1):setSize("parent.w", "parent.h"),
 }
 
---This part of the code adds buttons based on the sub table.
-local y = 2
-for k,v in pairs(windows)do
-    sidebar:addButton():setText("Turtle "..k) -- creating the button and adding a name k is just the index
-    :setBackground(colors.black)
-    :setForeground(colors.lightGray)
-    :setSize("parent.w - 2", 1)
-    :setPosition(2, y)
-    :onClick(function() -- here we create a on click event which hides ALL sub frames and then shows the one which is linked to the button
-        for a, b in pairs(windows)do
-            b:hide()
-            v:show()
-        end
-    end)
-    y = y + 4
-end
-
 windows[1]:addButton():setPosition(2, 2):onClick(function()
     main:addFrame():setPosition(1, 1):setSize("parent.w", "parent.h"):hide()
+    updateButtons()
     end)
+
+function updateButtons()--This part of the code adds buttons based on the sub table.
+    local y = 2
+    for k,v in pairs(windows)do
+        sidebar:addButton():setText("Turtle "..k) -- creating the button and adding a name k is just the index
+        :setBackground(colors.black)
+        :setForeground(colors.lightGray)
+        :setSize("parent.w - 2", 1)
+        :setPosition(2, y)
+        :onClick(function() -- here we create a on click event which hides ALL sub frames and then shows the one which is linked to the button
+            for a, b in pairs(windows)do
+                b:hide()
+                v:show()
+            end
+        end)
+        y = y + 4
+    end
+end
 
 
 basalt.autoUpdate()
