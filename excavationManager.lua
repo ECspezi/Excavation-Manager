@@ -21,7 +21,7 @@ local windows = {
 
 --This part of the code adds buttons based on the sub table.
 local y = 2
-for k,v in pairs(sub)do
+for k,v in pairs(windows)do
     sidebar:addButton():setText("Turtle "..k) -- creating the button and adding a name k is just the index
     :setBackground(colors.black)
     :setForeground(colors.lightGray)
