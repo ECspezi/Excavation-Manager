@@ -19,12 +19,7 @@ local windows = {
     main:addFrame():setPosition(1, 1):setSize("parent.w", "parent.h"),
 }
 
-windows[1]:addButton():setPosition(2, 2):onClick(function()
-    main:addFrame():setPosition(1, 1):setSize("parent.w", "parent.h"):hide()
-    updateButtons()
-    end)
-
-function updateButtons()--This part of the code adds buttons based on the sub table.
+function updateButtons() --This part of the code adds buttons based on the sub table.
     local y = 2
     for k,v in pairs(windows)do
         sidebar:addButton():setText("Turtle "..k) -- creating the button and adding a name k is just the index
@@ -42,5 +37,9 @@ function updateButtons()--This part of the code adds buttons based on the sub ta
     end
 end
 
+windows[1]:addButton():setPosition(2, 2):onClick(function()
+    main:addFrame():setPosition(1, 1):setSize("parent.w", "parent.h"):hide()
+    updateButtons()
+    end)
 
 basalt.autoUpdate()
