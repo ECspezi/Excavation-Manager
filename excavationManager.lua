@@ -14,16 +14,16 @@ end)
     self:setPosition("parent.w")
 end)
 
--- Once again we add 3 frames, the first one should be immediatly visible
-local windows = {
-    main:addFrame():setPosition(1, 1):setSize("parent.w", "parent.h"),
-}
+local dashboard = main:addFrame():setPosition(1, 1):setSize("parent.w", "parent.h")
+
 local dashboardButton = sidebar:addButton():setText("Dashboard"):setBackground(colors.black):setForeground(colors.white):setSize("parent.w - 2", 1):setPosition(2, 2):onClick(function()
     for key, window in pairs(windows) do
         window:hide()
     end
-    windows[1]:show()
+    dashboard:show()
 end)
+
+local windows = {}
 
 function updateButtons() --This part of the code adds buttons based on the sub table.
     local y = 4
@@ -36,6 +36,7 @@ function updateButtons() --This part of the code adds buttons based on the sub t
         :onClick(function() -- here we create a on click event which hides ALL sub frames and then shows the one which is linked to the button
             for a, b in pairs(windows)do
                 b:hide()
+                dashboard:hide()
                 v:show()
             end
         end)
