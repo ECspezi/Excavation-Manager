@@ -53,6 +53,11 @@ function updateButtons() --This part of the code adds buttons based on the sub t
             button:setForeground(colors.lightGray)
         end)
         local deleteButton = sidebar:addButton():setText("X"):setBackground(colors.red):setForeground(colors.white):setSize(3, 1):setPosition(12, y)
+        deleteButton:onClick(function()
+            deleteButton:setBackground(colors.white)
+            table.remove(windows, k)
+            updateButtons()
+        end)
         y = y + 2
     end
 end
