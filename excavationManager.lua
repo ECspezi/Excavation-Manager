@@ -17,27 +17,40 @@ end)
 local windows = {}
 local dashboard = main:addFrame():setPosition(1, 1):setSize("parent.w", "parent.h")
 
-local dashboardButton = sidebar:addButton():setText("Dashboard"):setBackground(colors.black):setForeground(colors.white):setSize("parent.w - 2", 1):setPosition(2, 2):onClick(function()
-    for key, window in pairs(windows) do
-        window:hide()
-    end
-    dashboard:show()
-end)
+local dashboardButton = sidebar:addButton():setText("Dashboard"):setBackground(colors.black):setForeground(colors.lightGray):setSize("parent.w - 2", 1):setPosition(2, 2)
+    dashboardButton:onClick(function()
+        for key, window in pairs(windows) do
+            window:hide()
+        end
+        dashboardButton:setBackground(colors.lightGray)
+        dashboardButton:setForeground(colors.white)
+        dashboard:show()
+    end)
+    dashboardButton:onRelease(function()
+        dashboardButton:setBackground(colors.black)
+        dashboardButton:setForeground(colors.lightGray)
+    end)
 
 function updateButtons() --This part of the code adds buttons based on the sub table.
     local y = 4
     for k,v in pairs(windows)do
-        sidebar:addButton():setText("Turtle "..k) -- creating the button and adding a name k is just the index
+        local button = sidebar:addButton():setText("Turtle "..k) -- creating the button and adding a name k is just the index
         :setBackground(colors.black)
         :setForeground(colors.lightGray)
         :setSize("parent.w - 2", 1)
         :setPosition(2, y)
-        :onClick(function() -- here we create a on click event which hides ALL sub frames and then shows the one which is linked to the button
+        button:onClick(function() -- here we create a on click event which hides ALL sub frames and then shows the one which is linked to the button
             for a, b in pairs(windows)do
                 b:hide()
                 dashboard:hide()
                 v:show()
             end
+            button:setBackground(colors.lightGray)
+            button:setForeground(colors.white)
+        end)
+        button:onRelease(function() 
+            button:setBackground(colors.black)
+            button:setForeground(colors.lightGray)
         end)
         y = y + 2
     end
