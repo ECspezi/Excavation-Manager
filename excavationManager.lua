@@ -44,7 +44,7 @@ function updateButtons() --This part of the code adds buttons based on the sub t
     end
 end
 
-windows[1]:addButton():setPosition(2, 2):onClick(function()
+dashboard:addButton():setPosition(2, 2):onClick(function()
     table.insert(windows, main:addFrame():setPosition(1, 1):setSize("parent.w", "parent.h"):hide())
     updateButtons()
     end)
