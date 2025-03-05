@@ -56,6 +56,9 @@ function updateButtons() --This part of the code adds buttons based on the sub t
         deleteButton:onClick(function()
             deleteButton:setBackground(colors.white)
             table.remove(windows, k)
+            for key, value in pairs(windows) do
+                basalt.debug(key, value)
+            end
             updateButtons()
         end)
         y = y + 2
