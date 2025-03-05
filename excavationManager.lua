@@ -18,18 +18,19 @@ local windows = {}
 
 local dashboard = main:addFrame():setPosition(1, 1):setSize("parent.w", "parent.h")
 
-local addTurtle = dashboard:addButton():setPosition(2, 2):onClick(function()
-    table.insert(windows, main:addFrame():setPosition(1, 1):setSize("parent.w", "parent.h"):hide())
-    updateButtons()
-    refreshPagesList()
-end)
-
 local pagesList = dashboard:addList():setPosition(2, 6)
 function refreshPagesList()
     for key, value in pairs(windows)do
         pagesList:addItem(key)
     end
 end
+
+local addTurtle = dashboard:addButton():setPosition(2, 2):onClick(function()
+    table.insert(windows, main:addFrame():setPosition(1, 1):setSize("parent.w", "parent.h"):hide())
+    updateButtons()
+    refreshPagesList()
+end)
+
 local dashboardButton = sidebar:addButton():setText("Dashboard"):setBackground(colors.black):setForeground(colors.lightGray):setSize("parent.w - 2", 1):setPosition(2, 2)
     dashboardButton:onClick(function()
         for key, window in pairs(windows) do
