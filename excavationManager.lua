@@ -71,13 +71,10 @@ function updateButtons() --This part of the code adds buttons based on the sub t
         deleteButton:onClick(function()
             deleteButton:setBackground(colors.white)
             v:hide()
+            dashboard:show()
             table.remove(windows, k)
             deleteButton:hide()
-            deleteButton:remove()
             button:hide()
-            button:remove()
-            refreshPagesList()
-            updateButtons()
         end)
         y = y + 2
     end
