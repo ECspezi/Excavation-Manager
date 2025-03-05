@@ -34,10 +34,10 @@ local dashboardButton = sidebar:addButton():setText("Dashboard"):setBackground(c
 function updateButtons() --This part of the code adds buttons based on the sub table.
     local y = 4
     for k,v in pairs(windows)do
-        local button = sidebar:addButton():setText("Turtle "..k) -- creating the button and adding a name k is just the index
+        local button = sidebar:addButton():setText("Turtle"..k) -- creating the button and adding a name k is just the index
         :setBackground(colors.black)
         :setForeground(colors.lightGray)
-        :setSize("parent.w - 2", 1)
+        :setSize("parent.w - 6", 1)
         :setPosition(2, y)
         button:onClick(function() -- here we create a on click event which hides ALL sub frames and then shows the one which is linked to the button
             for a, b in pairs(windows)do
@@ -52,6 +52,7 @@ function updateButtons() --This part of the code adds buttons based on the sub t
             button:setBackground(colors.black)
             button:setForeground(colors.lightGray)
         end)
+        local deleteButton = sidebar:addButton():setText("X"):setBackground(colors.red):setForeground(colors.white):setSize(3, 1):setPosition(12, y)
         y = y + 2
     end
 end
