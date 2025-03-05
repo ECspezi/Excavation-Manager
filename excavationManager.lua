@@ -31,10 +31,6 @@ local dashboardButton = sidebar:addButton():setText("Dashboard"):setBackground(c
         dashboardButton:setForeground(colors.lightGray)
     end)
 
-function updateDashboard()
-    updateButtons()
-end
-
 function updateButtons() --This part of the code adds buttons based on the sub table.
     local y = 4
     for k,v in pairs(windows)do
@@ -60,7 +56,9 @@ function updateButtons() --This part of the code adds buttons based on the sub t
         deleteButton:onClick(function()
             deleteButton:setBackground(colors.white)
             table.remove(windows, k)
-            updateDashboard()
+            deleteButton:remove()
+            button:remove()
+            updateButtons()
         end)
         y = y + 2
     end
