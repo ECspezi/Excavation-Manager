@@ -14,6 +14,7 @@ end)
     self:setPosition("parent.w")
 end)
 
+local windows = {}
 local dashboard = main:addFrame():setPosition(1, 1):setSize("parent.w", "parent.h")
 
 local dashboardButton = sidebar:addButton():setText("Dashboard"):setBackground(colors.black):setForeground(colors.white):setSize("parent.w - 2", 1):setPosition(2, 2):onClick(function()
@@ -22,8 +23,6 @@ local dashboardButton = sidebar:addButton():setText("Dashboard"):setBackground(c
     end
     dashboard:show()
 end)
-
-local windows = {}
 
 function updateButtons() --This part of the code adds buttons based on the sub table.
     local y = 4
