@@ -21,7 +21,7 @@ local dashboard = main:addFrame():setPosition(1, 1):setSize("parent.w", "parent.
 local pagesList = dashboard:addList():setPosition(2, 6)
 function refreshPagesList()
     for key, value in pairs(windows)do
-        pagesList:addItem(key)
+        pagesList:addItem("Page" .. key)
     end
 end
 
