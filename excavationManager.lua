@@ -18,9 +18,15 @@ end)
 local windows = {
     main:addFrame():setPosition(1, 1):setSize("parent.w", "parent.h"),
 }
+local dashboardButton = sidebar:addButton():setText("Dashboard"):setBackground(colors.black):setForeground(colors.white):setSize("parent.w - 2", 1):setPosition(2, 2):onClick(function()
+    for key, window in pairs(windows) do
+        window:hide()
+    end
+    windows[1]:show()
+end)
 
 function updateButtons() --This part of the code adds buttons based on the sub table.
-    local y = 2
+    local y = 4
     for k,v in pairs(windows)do
         sidebar:addButton():setText("Turtle "..k) -- creating the button and adding a name k is just the index
         :setBackground(colors.black)
@@ -39,9 +45,6 @@ end
 
 windows[1]:addButton():setPosition(2, 2):onClick(function()
     table.insert(windows, main:addFrame():setPosition(1, 1):setSize("parent.w", "parent.h"):hide())
-    for key, value in pairs(windows)do
-        basalt.debug(key, value)
-    end
     updateButtons()
     end)
 
